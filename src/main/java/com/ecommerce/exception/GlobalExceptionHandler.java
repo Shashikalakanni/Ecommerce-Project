@@ -1,0 +1,13 @@
+package com.ecommerce.exception;
+
+import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity;
+
+@ControllerAdvice
+public class GlobalExceptionHandler {
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<String> handle(Exception ex) {
+        return ResponseEntity.badRequest().body(ex.getMessage());
+    }
+}
